@@ -29,7 +29,7 @@ client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 
 class S3Config:
-    ACCESS_KEY = 'AKIAXWCDXI7BT65TAVER'
-    SECRET_ACCESS_KEY = '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'
-    REGION = 'us-east-1'
-    BUCKET_NAME = 'semantic-router'
+    ACCESS_KEY = ''
+    SECRET_ACCESS_KEY = ''
+    REGION = ''
+    BUCKET_NAME = ''

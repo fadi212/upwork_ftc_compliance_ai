@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: fastapi_app
+    ports:
+      - "8001:8001"  # Maps container port 8001 to host port 8001
+    env_file:
+      - .env  # Load environment variables from the .env file
+    environment:
+      - APP_MODE=main  # Additional environment variables if needed
+    command: ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8001"]
+    volumes:
+      - .:/app  # Mounts the current directory to the container
+
+  debug:
+    build: .
+    container_name: fastapi_debug
+    ports:
+      - "8002:8002"  # Maps container port 8002 to host port 8002
+    env_file:
+      - .env  # Load environment variables from the .env file
+    environment:
+      - APP_MODE=debug  # Additional environment variables if needed
+    command: ["uvicorn", "src.debug:app", "--host", "0.0.0.0", "--port", "8002"]
+    volumes:
+      - .:/app  # Mounts the current directory to the container
